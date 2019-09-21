@@ -1,18 +1,15 @@
-import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import Card from './src/components/Card'
+import React from 'react' 
+import { Router, Scene, Stack } from 'react-native-router-flux'
+import Login from './src/screens/Login'
+import Home from './src/screens/Home'
 
 export default () => {
   return (
-    <View>
-      <Text style={styles.title}>Hello</Text>
-      <Card name="Xuxinha" />
-    </View>
+    <Router>
+      <Stack key='root'>
+        <Scene key='login' initial={true} component={Login} />
+        <Scene key='home' component={Home} />
+      </Stack>
+    </Router>
   )
 }
-
-const styles = StyleSheet.create({
-  title: {
-    marginTop: 40
-  }
-})

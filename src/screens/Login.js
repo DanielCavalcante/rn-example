@@ -9,6 +9,7 @@ import {
   Platform
  } 
 from 'react-native'
+import { Actions } from 'react-native-router-flux'
 
 export default class Login extends Component {
 
@@ -20,12 +21,12 @@ export default class Login extends Component {
     }
   }
 
+  static navigationOptions = {
+    header: null
+  }
+
   handleClick = () => {
-    if (Platform.OS === 'ios') {
-      alert('Logado!')
-    } else {
-      ToastAndroid.show('Logado!', ToastAndroid.LONG)
-    }
+    Actions.home()
   }
 
   render() {
