@@ -3,10 +3,10 @@ import { View, Text, TouchableOpacity } from 'react-native'
 
 export default class Card extends Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      status: 'Inativo'  
+      status: 'Inativo'
     }
   }
 
@@ -17,6 +17,7 @@ export default class Card extends Component {
   render() {
     return (
       <View>
+        <Text>{this.props.name}</Text> 
         <TouchableOpacity onPress={this.handleClick}>
           <Text>{this.state.status}</Text>
         </TouchableOpacity>
