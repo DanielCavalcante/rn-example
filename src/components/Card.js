@@ -1,27 +1,39 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 
 export default class Card extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      status: 'Inativo'
+      status: props.done ? 'Feito' : 'Não feito' 
     }
-  }
-
-  handleClick = () => {
-    this.setState({ status: 'Ativo' }) 
   }
 
   render() {
     return (
-      <View>
-        <Text>{this.props.name}</Text> 
-        <TouchableOpacity onPress={this.handleClick}>
-          <Text>{this.state.status}</Text>
-        </TouchableOpacity>
+      <View style={styles.container}>
+        <Text>{this.state.status}</Text>
+        <Text>{this.props.description}</Text>
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#FFF',
+    borderRadius: 4,
+    borderWidth: 0.5,
+    borderBottomWidth: 3,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2},
+    shadowOpacity: 0.25,
+    elevation: 5,
+    borderColor: '#d6d7da',
+    height: 80,
+    marginBottom: 10,
+    padding: 5,
+    fontSize: 18
+  }
+})
